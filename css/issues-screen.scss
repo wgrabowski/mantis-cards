@@ -1,0 +1,60 @@
+.issues li:before,.issues li:after{
+    content:attr(data-mantis-id);
+    position:absolute;
+    font-size:1.5em;
+    top: 0;
+    bottom:0;
+    left:0;
+    margin: 0;
+    width:80px;
+    height:($list-issue-height/2);
+    line-height:2em;
+    text-align: center;
+}
+
+.issues li:after{
+  right:0;
+  left:auto;
+}
+.issues li[data-priority=high]:after{
+    content:'↑';
+}
+.issues li[data-priority=normal]:after{
+    content:'→';
+}
+.issues li[data-priority=low]:after{
+    content:'↓';
+}
+.issues{
+  list-style:none;
+  margin:0;
+  padding:0;
+  position:absolute;
+  top:$header-height;
+  left:0;
+  bottom:0;
+  right:0;
+  overflow-y:scroll;
+}
+.issues li{
+  margin:0;
+  padding:0 80px;
+  position:relative;
+  min-height:$list-issue-height;
+  line-height:1.5em;
+}
+.issues li:nth-child(odd){
+ background:$list-issue-alternate-bg; 
+}
+.issues li .summary{
+  width:100%;
+  clear:both;
+  height:auto;
+  min-height:1.5em;
+}
+.issues li .meta{
+  width:100%;
+  clear:both;
+  min-height:1.5em;
+}
+.issues#list{bottom:$header-height}

@@ -1,0 +1,81 @@
+@import "variables";
+@import "issues-screen";
+@import "issues-print";
+section aside{
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+html{
+  height:100%;
+  width:100%;
+}
+body{
+  font:#{$theme-font-size-base-px} $font-stack;
+  height:100%;
+}
+section{
+  float:left;
+  width:75%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  overflow:hidden;
+}
+section#left-panel{
+  left:0;
+  width:25%;
+}
+
+section header{
+  width:100%;
+  height:$header-height;
+  font-size:1em;
+  line-height:$header-height/2;
+  border:1px dashed $theme-color-2;
+  border-width:0 0 1px;
+}
+section header h1{
+  float:left;
+  width:auto;
+  padding:0 0.25em;
+  margin:0;
+  line-height:$header-height/2;
+}
+section header nav{
+  float:right;
+}
+section header nav button{
+  float:right;
+  height:$header-height;
+  min-width:$header-height;
+  display: block;
+  background:none;
+  border:0;
+  
+}
+section aside{
+  position:absolute;
+  bottom:0;
+  background:$theme-bg-2;
+  height:auto;
+  width:100%;
+  display: block;
+  min-height:$header-height;
+  max-height:$header-height;
+  z-index:10;
+}
+section aside:hover,section aside:focus{
+  max-height:100%;
+  
+}
+section aside textarea{
+  width:100%; 
+}
