@@ -21,6 +21,10 @@ display:block
 }
 #print.issues li:before,#print.issues li:after{
   font-size:2em;
+  position:absolute;
+  top:0;
+  bottom:auto;
+  margin:0;
 }
 #print.issues li .meta {
     position:absolute;
@@ -31,4 +35,9 @@ display:block
 }
 #print.issues li .summary{
   padding:$printed-padding;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-wrap:break-word;
+  overflow:hidden
 }
