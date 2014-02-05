@@ -25,13 +25,20 @@ display:block
   top:0;
   bottom:auto;
   margin:0;
+  font-weight:700
+}
+#print.issues li:before{
+  left:0.5rem;
 }
 #print.issues li .meta {
     position:absolute;
     bottom:0;
     left:$printed-padding;
     right:$printed-padding;
-    height:$printed-meta-height;   
+    height:auto;
+    min-height:$printed-meta-height;
+    max-height:$printed-meta-height*2;   
+    width:auto;
 }
 #print.issues li .summary{
   padding:$printed-padding;
