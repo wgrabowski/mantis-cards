@@ -22,16 +22,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (helper = helpers.Summary) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.Summary); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\n	</div>\n	<div class=\"meta\">\n		<strong>I";
-  if (helper = helpers.Importance) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.Importance); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
-    + "</strong>\n		<strong>"
-    + escapeExpression((helper = helpers.getValue || (depth0 && depth0.getValue),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.Severity), options) : helperMissing.call(depth0, "getValue", (depth0 && depth0.Severity), options)))
-    + "</strong>\n		<strong>";
-  if (helper = helpers.Tags) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.Tags); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
+    + "\n	</div>\n	<div class=\"meta\">\n		<strong>Estimated time: "
+    + escapeExpression((helper = helpers.getValue || (depth0 && depth0.getValue),options={hash:{},data:data},helper ? helper.call(depth0, depth0, "Estimated time", options) : helperMissing.call(depth0, "getValue", depth0, "Estimated time", options)))
+    + "</strong>\n		<strong class=\"right\">"
+    + escapeExpression((helper = helpers.getValue || (depth0 && depth0.getValue),options={hash:{},data:data},helper ? helper.call(depth0, depth0, "Severity", options) : helperMissing.call(depth0, "getValue", depth0, "Severity", options)))
     + "</strong>\n	</div>\n</li>";
   return buffer;
   });

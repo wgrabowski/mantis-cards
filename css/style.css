@@ -88,21 +88,29 @@
   position: absolute;
   top: 0;
   bottom: auto;
-  margin: 0; }
+  margin: 0;
+  font-weight: 700; }
+
+#print.issues li:before {
+  left: 0.5rem; }
 
 #print.issues li .meta {
   position: absolute;
   bottom: 0;
   left: 0.5em;
   right: 0.5em;
-  height: 2em; }
+  height: auto;
+  min-height: 2em;
+  max-height: 4em;
+  width: auto; }
 
 #print.issues li .summary {
   padding: 0.5em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  overflow-wrap: break-word; }
+  overflow-wrap: break-word;
+  overflow: hidden; }
 
 section aside {
   -webkit-transition: all 500ms ease;
