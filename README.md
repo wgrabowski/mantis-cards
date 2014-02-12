@@ -8,7 +8,7 @@ Agile cards printer tool for Mantis BT.
 ##Precomipiling Handlebars templates
 
 #Usage
-*Export your issues from Mantis (CSV) export
+* Export your issues from Mantis (CSV) export
 * Click/hover on Import bar in app to see text input
 * Paste exported csv file contents to input
 * Click 'import' button
