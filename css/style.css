@@ -252,3 +252,40 @@ a.big, button.big {
   text-transform: uppercase;
   background: #201747;
   color: ivory; }
+
+.two-state {
+  width: 0;
+  height: 3rem;
+  overflow: visible; }
+
+aside label, aside input {
+  clear: both;
+  float: left;
+  display: block; }
+
+.two-state:before, .two-state:after {
+  min-width: 16px;
+  height: 24px;
+  content: " 12(4x3)";
+  padding: 0 0;
+  width: 10px;
+  margin: 0 0;
+  text-align: center;
+  display: block;
+  padding: 1100px; }
+
+.two-state:before, .two-state:checked:after {
+  background: #201747;
+  color: ivory; }
+
+.two-state:after, .two-state:checked:before {
+  color: #201747;
+  background: ivory; }
+
+#cards-per-page:before {
+  content: "12";
+  float: left; }
+
+#cards-per-page:after {
+  content: "9";
+  float: right; }

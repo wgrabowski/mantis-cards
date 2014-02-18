@@ -1,8 +1,13 @@
 var mcards = {
 	init : function() {
 		mcards.csvInput = document.querySelector("#csv-input");
-		if(localStorage.getItem(mcards.storageKey)) {mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))}
-		
+		if (localStorage.getItem(mcards.storageKey)) {
+			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
+		}
+
+		mcards.list = document.querySelector("ul#list.issues");
+		mcards.print = document.querySelector("ul#print.issues");
+
 		mcards.showIssues();
 		mcards.initDragOnList();
 		mcards.initDropOnPrint();
@@ -10,11 +15,20 @@ var mcards = {
 		mcards.attachEvents();
 	},
 	attachEvents : function() {
-		var importBtn = document.querySelector("#import-btn");
+		var importBtn = document.querySelector("#import-btn"), addAllBtn = document.querySelector("#add-all-btn"),eraseAllBtn = document.querySelector("#erase-all-btn");
 
-		addEvent(importBtn, 'click', function(){
+		addEvent(importBtn, 'click', function(e) {
+			e.preventDefault();
 			mcards.importFromCSV();
-			location.reload();
+			location.href = window.location.href.split('#')[0];
+		});
+		addEvent(addAllBtn, 'click', function(e) {
+			e.preventDefault();
+			mcards.allToPrint();
+		});
+		addEvent(eraseAllBtn, 'click', function(e) {
+			e.preventDefault();
+			mcards.noneToPrint();
 		});
 
 	},
@@ -119,6 +133,7 @@ var mcards = {
 			if (e.stopPropagation)
 				e.stopPropagation();
 			// stops the browser from redirecting...why???
+			console.log("drops");
 
 			var el = document.getElementById(e.dataTransfer.getData('Text'));
 
@@ -131,10 +146,37 @@ var mcards = {
 
 		});
 	},
+	allToPrint : function() {
+		if (mcards.list.childElementCount) {
+			var children = mcards.list.children, immigrants = [];
+			console.log(children.length);
+			for (var i = 0; i < children.length; i++) {
+				immigrants.push(children[i]);
+			}
+			mcards.moveElements(mcards.list, mcards.print, immigrants);
+		}
+	},
+	noneToPrint : function() {
+		if (mcards.print.childElementCount) {
+			var children = mcards.print.children, immigrants = [];
+			console.log(children.length);
+			for (var i = 0; i < children.length; i++) {
+				immigrants.push(children[i]);
+			}
+			mcards.moveElements(mcards.print, mcards.list, immigrants);
+		}
+	},
+	moveElements : function(from, to, children) {
+		for (var i = 0; i < children.length; i++) {
+			to.appendChild(children[i])
+		}
+	},
 	allIssues : {
 	},
+	list : {},
+	print : {},
 	csvInput : null,
-	storageKey: "mcards-all"
+	storageKey : "mcards-all"
 }
 
 function addEvent(el, type, fn) {
