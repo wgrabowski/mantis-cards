@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>Document</title>
 		<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="webfont/css/fontello.css" media="all" />
 		<link rel="stylesheet" href="css/normalize.css" media="all" />
 		<link rel="stylesheet" href="css/style.css" media="all" />
 		<link rel="stylesheet" href="css/print.css" media="print" />
@@ -13,29 +14,35 @@
 		<script src="js/helpers.js"></script>
 		<script src="js/csv2json.js"></script>
 		<script src="js/app.js"></script>
+		<style id="custom-fields" media="projection">
+			li{color:red!important}
+		</style>
 
 	</head>
 	<body>
-		<header></header>
+		<header>
+			Mantis Cards printer
+		</header>
 		<section id="left-panel">
 			<header>
 				<h1>Mantis issues</h1>
 				<nav>
-
+				<button class="icon-export" title="Add all" onclick="mcards.addAll();">add all</button>
+				<a href="#mantis-import" title="import" class="icon-install">import CSV</a>
 				</nav>
 			</header>
-			<aside tabindex="0">
+			<aside tabindex="0" id="mantis-import">
 				<header>
 					<h1>Import</h1>
+					<a href="#close">&times;</a>
 				</header>
 				<p>
 					Export issues from Mantis to CSV, paste exported file content below and press [Import] button.
 				</p>
 				<textarea name="csv-input" id="csv-input" cols="30" rows="10" placeholder="paste CSV content here"></textarea>
-				<button id="import-btn">
+				<button id="import-btn" class="big">
 					Import
 				</button>
-
 			</aside>
 			<ul class="issues" id="list"></ul>
 		</section>
@@ -43,12 +50,18 @@
 			<header>
 				<h1>Print view</h1>
 				<nav>
-					<button  onclick="window.print()">
-						Print
-					</button>
+					<button class="icon-print" onclick="window.print()">Print</button>
+					<a href="#print-options" class="icon-cog">Options</a>
+					<a href="#print-erase" class="icon-erase">Erase</a>
 				</nav>
 			</header>
 			<ul class="issues" id="print"></ul>
+			<aside class="config-panel" id="print-options">
+				<header>
+					<h1>Print options</h1>
+					<a href="#close" class="right">&times;</a>
+				</header>
+			</aside>
 		</section>
 
 		<script>

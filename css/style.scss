@@ -1,12 +1,12 @@
 @import "variables";
 @import "issues-screen";
 @import "issues-print";
-section aside{
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
+section aside,a,button,input,textarea,select,[class*="icon"]:before{
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 html{
   height:100%;
@@ -16,15 +16,29 @@ body{
   font:#{$theme-font-size-base-px} $font-stack;
   height:100%;
 }
+a,button{
+  color:$theme-color-2;
+  outline:none
+}
+a:hover,button:hover,a:focus,button:focus,a:active{
+  background:$theme-color-2;
+  color:$theme-color-light;
+}
+body > header{
+  height:$header-height;
+  background:$theme-bg-1;
+  color:$theme-color-light;
+  font-size:1.25em;
+  line-height:$header-height;
+}
 section{
   float:left;
   width:75%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height:100%;
   position:absolute;
-  top:0;
+  top:$header-height;
   bottom:0;
   right:0;
   overflow:hidden;
@@ -32,6 +46,8 @@ section{
 section#left-panel{
   left:0;
   width:25%;
+  border-right:1px dashed $theme-color-1;
+  
 }
 
 section header{
@@ -41,27 +57,55 @@ section header{
   line-height:$header-height/2;
   border:1px dashed $theme-color-2;
   border-width:0 0 1px;
+  
 }
-section header h1{
+header h1{
   float:left;
   width:auto;
   padding:0 0.25em;
   margin:0;
-  line-height:$header-height/2;
+  font-size:$header-height/3;
+  line-height:$header-height;
+  height:$header-height;
+  color:$theme-color-1;
 }
-section header nav{
+header nav{
   float:right;
+  color:$theme-color-2;
 }
-section header nav button{
+button,a{
   float:right;
+  font-size:$header-height/3;
+  line-height:$header-height;
   height:$header-height;
   min-width:$header-height;
+  padding:0 0.5ex;
   display: block;
   background:none;
   border:0;
-  
+  text-decoration:none;
+  text-align: center;
+  border:1px solid $theme-color-2;
+  border-width:0 0 0 1px;
+  text-transform: uppercase;  
+  font-variant: small-caps;
 }
-section aside{
+[class*="icon"]{
+  font-size:0;
+}
+[class*="icon"]:hover,[class*="icon"]:focus{
+  font-size:0em!important;
+}
+[class*="icon"]:before{
+  font-size:#{$header-height/2}!important;
+  line-height:$header-height!important;
+}
+
+a[href="#close"]{
+  font-size:2em;
+  font-weight:700;
+}
+section aside.import{
   position:absolute;
   bottom:0;
   background:$theme-bg-2;
@@ -72,12 +116,36 @@ section aside{
   max-height:$header-height;
   z-index:10;
 }
-section aside:hover,section aside:focus{
+section aside:focus{
   max-height:100%  
 }
 section aside textarea{
   width:100%; 
 }
+section aside{
+  position:absolute;
+  top:#{$header-height};
+  left:0;
+  right:0;
+  background:$theme-bg-2;
+  height:auto;
+  width:100%;
+  display: block;
+  min-height:0;
+  max-height:0;
+  z-index:10;
+  overflow:hidden;
+}
+section aside:target{
+  max-height:calc(100% - #{$header-height});
+  min-height:calc(100% - #{$header-height});
+}
 .right{
 	float:right;
+}
+a.big,button.big{
+  width:100%;
+  text-transform:uppercase;
+  background:$theme-color-1;
+  color:$theme-color-light;
 }
