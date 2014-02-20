@@ -32,19 +32,19 @@
 					<button id="add-all-btn" class="icon-forward" title="Add all">
 						add all
 					</button>
-					<a href="#mantis-import" title="import" class="icon-install">import CSV</a>
+					<a href="#mantis-import" title="Import from CSV" class="icon-install">import CSV</a>
 				</nav>
 			</header>
 			<aside tabindex="0" id="mantis-import">
 				<header>
 					<h1>Import</h1>
-					<a href="#close">&times;</a>
+					<a href="#close" title="zamknij">&times;</a>
 				</header>
 				<p>
 					Export issues from Mantis to CSV, paste exported file content below and press [Import] button.
 				</p>
 				<textarea name="csv-input" id="csv-input" cols="30" rows="10" placeholder="paste CSV content here"></textarea>
-				<button id="import-btn" class="big">
+				<button id="import-btn" class="big" title="Import">
 					Import
 				</button>
 			</aside>
@@ -54,11 +54,11 @@
 			<header>
 				<h1>Print view</h1>
 				<nav>
-					<button class="icon-print" onclick="window.print()">
+					<button class="icon-print" onclick="window.print()" title="Print cards">
 						Print
 					</button>
-					<a href="#print-options" class="icon-cog">Options</a>
-					<button id="erase-all-btn" class="icon-reply" title="Add all">
+					<a href="#print-options" class="icon-cog" disabled="disabled" title="Show print options">Options</a>
+					<button id="erase-all-btn" class="icon-reply" title="Add all" title="Move all cards from print">
 						add all
 					</button>
 				</nav>
@@ -71,14 +71,8 @@
 						<a href="#close" class="right">&times;</a>
 					</nav>
 				</header>
-
-				
-				<input type="checkbox" class="two-state" id="cards-per-page" />
-				
-				
+				<input type="checkbox" class="two-state" id="cards-per-page" title=""/>
 				<input type="checkbox" class="two-state" id="page-orientation" />
-				
-
 			</aside>
 		</section>
 

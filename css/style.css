@@ -220,9 +220,6 @@ section aside.import {
   max-height: 3rem;
   z-index: 10; }
 
-section aside:focus {
-  max-height: 100%; }
-
 section aside textarea {
   width: 100%; }
 
