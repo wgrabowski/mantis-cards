@@ -1,17 +1,21 @@
 .issues li:before,.issues li:after{
-    content:attr(data-mantis-id);
+    content:"";
     position:absolute;
     font-size:1.25em;
     top: 50%;
     bottom:50%;
     left:0;
     margin:-0.65em 0;
-    width:100px;
+    width:120px;
     height:($list-issue-height/2);
     line-height:2em;
     text-align: center;
 }
 
+.issues li:before{
+  content:attr(data-mantis-id)"\A"attr(data-summary-rgx);
+  line-height:1em;
+}
 .issues li:after{
   right:0;
   left:auto;
@@ -40,7 +44,7 @@
 }
 .issues li{
   margin:0;
-  padding:0 40px 0 100px;
+  padding:0 40px 0 120px;
   position:relative;
   min-height:$list-issue-height;
   line-height:1.5em;

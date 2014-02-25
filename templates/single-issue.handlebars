@@ -1,9 +1,9 @@
-<li id="cart{{ID}}" issue data-mantis-id="{{ID}}" data-priority="{{Priority}}" draggable="true">
+<li id="card{{getValue this 'ID'}}" data-mantis-id="{{getValue this 'ID'}}" data-summary-rgx="{{regexField "customSummaryRgx" "Summary" this}}" data-priority="{{getValue this 'Priority'}}" draggable="true">
 	<div class="summary" contenteditable="true">
-		{{Summary}}
+		{{getValue this 'Summary'}}
 	</div>
 	<div class="meta">
-		<strong>Estimated time: {{getValue this 'Estimated time'}}</strong>
+		<strong>{{#if (getValue this 'Estimated time')}}Est. time: {{getValue this 'Estimated time'}}{{/if}}</strong>
 		<strong class="right">{{getValue this 'Severity'}}</strong>
 	</div>
 </li>

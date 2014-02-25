@@ -1,8 +1,10 @@
 var mcards = {
 	init : function() {
 		mcards.csvInput = document.querySelector("#csv-input");
+		localStorage.setItem(mcards.storagePrefix+"rgx-customSummaryRgx","/\{[A-Z]{3}[0-9]{3,4}\}*/");
 		if (localStorage.getItem(mcards.storageKey)) {
 			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
+		
 		}
 
 		mcards.list = document.querySelector("ul#list.issues");
@@ -15,7 +17,7 @@ var mcards = {
 		mcards.attachEvents();
 	},
 	attachEvents : function() {
-		var importBtn = document.querySelector("#import-btn"), addAllBtn = document.querySelector("#add-all-btn"),eraseAllBtn = document.querySelector("#erase-all-btn");
+		var importBtn = document.querySelector("#import-btn"), addAllBtn = document.querySelector("#add-all-btn"), eraseAllBtn = document.querySelector("#erase-all-btn");
 
 		addEvent(importBtn, 'click', function(e) {
 			e.preventDefault();
@@ -133,7 +135,6 @@ var mcards = {
 			if (e.stopPropagation)
 				e.stopPropagation();
 			// stops the browser from redirecting...why???
-			console.log("drops");
 
 			var el = document.getElementById(e.dataTransfer.getData('Text'));
 
@@ -171,12 +172,24 @@ var mcards = {
 			to.appendChild(children[i])
 		}
 	},
+	utils : {
+		unifyName : function(name) {
+			var res = name.trim().replace(" ", "").toLowerCase();
+			return res;
+		},
+		getRgxByName : function(name) {
+			var rgx = localStorage.getItem(mcards.storagePrefix+"rgx-"+name);
+			return rgx;
+		}
+	},
 	allIssues : {
 	},
 	list : {},
 	print : {},
 	csvInput : null,
-	storageKey : "mcards-all"
+	storageKey : "mcards-all",
+	storagePrefix : "mcards-"
+	
 }
 
 function addEvent(el, type, fn) {
