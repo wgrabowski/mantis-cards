@@ -10,13 +10,14 @@
     height:($list-issue-height/2);
     line-height:2em;
     text-align: center;
+    display:none
 }
 
-.issues li:before{
-  content:attr(data-mantis-id)"\A"attr(data-summary-rgx);
+.issues li:befores{
+  content:attr(data-mantis-id)""attr(data-summary-rgx);
   line-height:1em;
 }
-.issues li:after{
+.issues li:afters{
   right:0;
   left:auto;
   content:"";
@@ -62,5 +63,10 @@
   width:100%;
   clear:both;
   min-height:1.5em;
+}
+
+.issues li header,.issues li footer,.issues li section{
+  clear:both;
+  float:left
 }
 

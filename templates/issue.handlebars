@@ -1,0 +1,13 @@
+<li id="newcard{{getValue this 'ID'}}" class="issue" draggable="true">
+<header>
+  <h1><span>{{getValue this 'ID'}}</span><span class="severity r">{{getValue this 'Severity'}}</span></h1>
+  <h2><strong>{{regexField "customSummaryRgx" "Summary" this}}</strong><strong class="r">I:90</strong></h2>
+</header>
+<section class="summary" contenteditable="true">
+   	{{getValue this 'Summary'}}
+</section>
+<footer>
+  <h3>{{#if (getValue this 'Estimated time')}}<strong class="icon-clock">{{getValue this 'Estimated time'}}</strong>{{/if}} <strong class="right">{{regexField "customTagsRgx" "Tags" this}}</strong></h3>
+</footer>
+  
+</li>

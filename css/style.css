@@ -1,117 +1,37 @@
-@charset "UTF-8";
-.issues li:before, .issues li:after {
-  content: "";
-  position: absolute;
-  font-size: 1.25em;
-  top: 50%;
-  bottom: 50%;
-  left: 0;
-  margin: -0.65em 0;
-  width: 120px;
-  height: 1.5em;
-  line-height: 2em;
-  text-align: center; }
-
-.issues li:before {
-  content: attr(data-mantis-id) "\A" attr(data-summary-rgx);
-  line-height: 1em; }
-
-.issues li:after {
-  right: 0;
-  left: auto;
-  content: "";
-  width: 40px; }
-
-.issues li[data-priority=high]:after {
-  content: '↑'; }
-
-.issues li[data-priority=normal]:after {
-  content: '→'; }
-
-.issues li[data-priority=low]:after {
-  content: '↓'; }
+* {
+  padding: 0;
+  margin: 0; }
 
 .issues {
   list-style: none;
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: 3rem;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow-y: scroll; }
-
-.issues li {
-  margin: 0;
-  padding: 0 40px 0 120px;
-  position: relative;
-  min-height: 3em;
-  line-height: 1.5em; }
-
-.issues li:nth-child(odd) {
-  background: lavender; }
-
-.issues li .summary {
-  width: 100%;
-  clear: both;
-  height: auto;
-  min-height: 1.5em; }
-
-.issues li .meta {
-  width: 100%;
-  clear: both;
-  min-height: 1.5em; }
-
-#print {
-  width: 100%;
   float: left;
-  display: block; }
-
-#print.issues li {
-  width: 33.333333333333333%;
-  max-width: 70mm;
-  min-width: 50mm;
-  height: 25%;
-  max-height: 74.25mm;
-  float: left;
-  display: block;
-  padding: 3rem 0 2em;
-  background: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 1px dashed black;
-  border-width: 0 1px 1px 0; }
-
-#print.issues li:before, #print.issues li:after {
-  font-size: 2em;
-  position: absolute;
-  top: 0;
-  bottom: auto;
-  margin: 0;
-  font-weight: 700; }
-
-#print.issues li:before {
-  left: 0.5rem; }
-
-#print.issues li .meta {
-  position: absolute;
-  bottom: 0;
-  left: 0.5em;
-  right: 0.5em;
-  height: auto;
-  min-height: 2em;
-  max-height: 4em;
-  width: auto; }
-
-#print.issues li .summary {
-  padding: 0.5em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  text-overflow: ellipsis; }
+  overflow-y: auto; }
+  .issues li {
+    display: block;
+    width: 33.3333333333%;
+    max-width: 70mm;
+    float: left;
+    height: 33.3333333333%;
+    max-height: 99mm;
+    min-height: 99mm;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px dashed #000;
+    border-width: 1px; }
+    .issues li header {
+      background: pisnk; }
+    .issues li footer {
+      background: reds;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+    .issues li section {
+      background: wheast; }
 
 section aside, a, button, input, textarea, select, [class*="icon"]:before {
   -webkit-transition: all 300ms ease;
@@ -143,7 +63,7 @@ body > header {
   font-size: 1.25em;
   line-height: 3rem; }
 
-section {
+body > section {
   float: left;
   width: 75%;
   -webkit-box-sizing: border-box;
@@ -160,7 +80,7 @@ section#left-panel {
   width: 25%;
   border-right: 1px dashed #201747; }
 
-section header {
+body > section > header {
   width: 100%;
   height: 3rem;
   font-size: 1em;
@@ -168,7 +88,7 @@ section header {
   border: 1px dashed #574487;
   border-width: 0 0 1px; }
 
-header h1 {
+section > header h1 {
   float: left;
   width: auto;
   padding: 0 0.25em;
@@ -178,7 +98,7 @@ header h1 {
   height: 3rem;
   color: #201747; }
 
-header nav {
+section > header nav {
   float: right;
   color: #574487; }
 
@@ -199,11 +119,11 @@ button, a {
   text-transform: uppercase;
   font-variant: small-caps; }
 
-[class*="icon"] {
-  font-size: 0; }
+[class*="icon-only"] {
+  font-size: 0 !important; }
 
-[class*="icon"]:hover, [class*="icon"]:focus {
-  font-size: 0em !important; }
+[class*="icon-only"]:hover, [class*="icon-only"]:focus {
+  font-size: 0 !important; }
 
 [class*="icon"]:before {
   font-size: 1.5rem!important;

@@ -14,12 +14,6 @@ Handlebars.registerHelper('unifyName', function(name) {
 Handlebars.registerHelper('regexField', function(rgxName,field,obj) {
 	var rgx = new RegExp(mcards.utils.getRgxByName(rgxName).replace("/","").replace("/","")),
 		str = obj[mcards.utils.unifyName(field)];
-	console.group(obj.id);
-	console.log(rgx);
-	console.log(str);
-	console.log(rgx.exec(str));
-	console.log(mcards.utils.getRgxByName(rgxName));
-	console.groupEnd();
 	
   return rgx.exec(str);
 });

@@ -1,7 +1,8 @@
 var mcards = {
 	init : function() {
 		mcards.csvInput = document.querySelector("#csv-input");
-		localStorage.setItem(mcards.storagePrefix+"rgx-customSummaryRgx","/\{[A-Z]{3}[0-9]{3,4}\}*/");
+		localStorage.setItem(mcards.storagePrefix+"rgx-customSummaryRgx","/[A-Z]{3}[0-9]{3,4}/");
+		localStorage.setItem(mcards.storagePrefix+"rgx-customTagsRgx","/[GUI]/");
 		if (localStorage.getItem(mcards.storageKey)) {
 			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
 		
@@ -44,7 +45,8 @@ var mcards = {
 		var listHtml = "", list = document.querySelector("ul#list.issues"), print = document.querySelector("ul#print.issues");
 
 		for (var i = 0, j = mcards.allIssues.length; i < j; i++) {
-			listHtml += Handlebars.templates["single-issue"](mcards.allIssues["" + i + ""]);
+			//listHtml += Handlebars.templates["single-issue"](mcards.allIssues["" + i + ""]);
+			listHtml += Handlebars.templates["issue"](mcards.allIssues["" + i + ""]);
 		}
 		list.innerHTML = listHtml;
 	},

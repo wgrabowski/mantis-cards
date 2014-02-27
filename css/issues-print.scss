@@ -7,10 +7,10 @@ display:block
     max-width:70mm;
     min-width:50mm;
     height:25%;
-    max-height:74.25mm;
+    smax-height:74.25mm;
     float:left;
     display:block;
-    padding:$header-height 0 $printed-meta-height;
+    padding:0;
     background:0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -20,7 +20,7 @@ display:block
     
 }
 #print.issues li:before,#print.issues li:after{
-  font-size:2em;
+  font-size:2rem;
   position:absolute;
   top:0;
   bottom:auto;

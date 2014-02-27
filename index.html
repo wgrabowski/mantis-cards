@@ -29,10 +29,10 @@
 			<header>
 				<h1>Mantis issues</h1>
 				<nav>
-					<button id="add-all-btn" class="icon-forward" title="Add all">
+					<button id="add-all-btn" class="icon-forward icon-only" title="Add all">
 						add all
 					</button>
-					<a href="#mantis-import" title="Import from CSV" class="icon-install">import CSV</a>
+					<a href="#mantis-import" title="Import from CSV" class="icon-install icon-only">import CSV</a>
 				</nav>
 			</header>
 			<aside tabindex="0" id="mantis-import">
@@ -54,16 +54,17 @@
 			<header>
 				<h1>Print view</h1>
 				<nav>
-					<button class="icon-print" onclick="window.print()" title="Print cards">
+					<button class="icon-print icon-only" onclick="window.print()" title="Print cards">
 						Print
 					</button>
-					<a href="#print-options" class="icon-cog" disabled="disabled" title="Show print options">Options</a>
-					<button id="erase-all-btn" class="icon-reply" title="Add all" title="Move all cards from print">
+					<a href="#print-options" class="icon-cog icon-only" disabled="disabled" title="Show print options">Options</a>
+					<button id="erase-all-btn" class="icon-reply icon-only" title="Add all" title="Move all cards from print">
 						add all
 					</button>
 				</nav>
 			</header>
-			<ul class="issues" id="print"></ul>
+			<ul class="issues" id="print">
+						</ul>
 			<aside class="config-panel" id="print-options">
 				<header>
 					<h1>Print options</h1>

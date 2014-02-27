@@ -1,0 +1,40 @@
+*{
+  padding:0;
+  margin:0
+}
+.issues{
+  list-style:none;
+  margin:0;
+  padding:0;
+  float:left;
+  overflow-y:auto;
+  li{
+    display:block;
+    width:33.3333333333%;
+    max-width:70mm;
+    float:left;
+    height:33.3333333333%;
+    max-height:99mm;
+    min-height:99mm;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position:relative;
+    border:1px dashed #000;
+    border-width:1px;
+    
+      header{
+       background:pisnk;
+      }
+      footer{
+       background:reds;
+       position:absolute;
+       bottom:0;
+       left:0;
+       right:0;
+      }
+      section{
+       background:wheast 
+      }
+  }
+}
