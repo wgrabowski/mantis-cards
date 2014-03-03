@@ -14,7 +14,12 @@
   width: 100%;
   height: auto;
   overflow: visible;
-  top: 0; }
+  top: 0; 
+  min-height:100%;}
+
+#right-panel #print.issues li {
+  min-height: 0;
+  min-width: 0; }
 
 body > header, body > footer {
   display: none; }

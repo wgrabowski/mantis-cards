@@ -15,9 +15,13 @@
   width:100%;
   height:auto;
   overflow:visible;
+  min-height:50%;
   top:0;
 }
-
+#right-panel #print.issues li{
+  min-height:0;
+  min-width:0;
+}
 body > header,body > footer{
   display:none
 }

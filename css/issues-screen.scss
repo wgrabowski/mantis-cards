@@ -1,72 +1,67 @@
-.issues li:before,.issues li:after{
-    content:"";
-    position:absolute;
-    font-size:1.25em;
-    top: 50%;
-    bottom:50%;
-    left:0;
-    margin:-0.65em 0;
-    width:120px;
-    height:($list-issue-height/2);
-    line-height:2em;
-    text-align: center;
-    display:none
-}
-
-.issues li:befores{
-  content:attr(data-mantis-id)""attr(data-summary-rgx);
-  line-height:1em;
-}
-.issues li:afters{
-  right:0;
-  left:auto;
-  content:"";
-  width:40px
-}
-.issues li[data-priority=high]:after{
-    content:'↑';
-}
-.issues li[data-priority=normal]:after{
-    content:'→';
-}
-.issues li[data-priority=low]:after{
-    content:'↓';
-}
-.issues{
+#list.issues{
+  display:block;
   list-style:none;
   margin:0;
   padding:0;
-  position:absolute;
-  top:$header-height;
-  left:0;
-  bottom:0;
-  right:0;
+  float:left;
   overflow-y:scroll;
-}
-.issues li{
-  margin:0;
-  padding:0 40px 0 120px;
-  position:relative;
-  min-height:$list-issue-height;
-  line-height:1.5em;
-}
-.issues li:nth-child(odd){
- background:$list-issue-alternate-bg; 
-}
-.issues li .summary{
-  width:100%;
-  clear:both;
-  height:auto;
-  min-height:1.5em;
-}
-.issues li .meta{
-  width:100%;
-  clear:both;
-  min-height:1.5em;
-}
+  li{
+    width:100%;
+    float:left;
+    display:block;
+    padding:$printed-card-padding;
+    background:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border:1px dashed black;
+    border-width:0;   
+      header{
+       display:block;
+       clear:both;
+       float:left;
+       width:100%;
+       h1,h2,h3,h4{
+         margin:0;
+         float:left;
+         width:100%;
+         strong{
+           width:100%;
+           clear:both;
+           float:left
+         }
+       }
+       h1{
+         width:50%;
+         clear:both;
+         font-size:1.5rem;
+         line-height:2rem;
+         float:left;
+         display:block;
+          .custom-id{
+            font-size:0.75em
+          }
+        }
+       h2{
+         width:50%;
+        font-size:1rem;
+        line-height:1.5rem;
+        display:block;
+        float:right;
+       }
 
-.issues li header,.issues li footer,.issues li section{
-  clear:both;
-  float:left
+      }
+      footer{
+      display:none;
+      }
+      section{
+       display: block;
+       float:left;
+       clear:both;
+       width:100%;
+      }
+  }
+   li:nth-child(even){
+    background:$list-issue-alternate-bg
+   }
 }
-

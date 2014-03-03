@@ -1,13 +1,18 @@
 <li id="newcard{{getValue this 'ID'}}" class="issue" draggable="true">
 <header>
-  <h1><span>{{getValue this 'ID'}}</span><span class="severity r">{{getValue this 'Severity'}}</span></h1>
-  <h2><strong>{{regexField "customSummaryRgx" "Summary" this}}</strong><strong class="r">I:90</strong></h2>
+  <h1><strong>{{getValue this 'ID'}}</strong><strong class="custom-id right">{{regexField "customSummaryRgx" "Summary" this}}</strong></h1>
+  <h2>
+  {{#if (customField "customImportanceField" this 'value')}}
+  <strong class="right">{{customField "customImportanceField" this 'name'}}: {{customField "customImportanceField" this 'value'}}</strong>
+  {{/if}}
+  	<strong class="severity">{{getValue this 'Priority'}} / {{getValue this 'Severity'}}</strong> 
+  </h2>
 </header>
 <section class="summary" contenteditable="true">
    	{{getValue this 'Summary'}}
 </section>
 <footer>
-  <h3>{{#if (getValue this 'Estimated time')}}<strong class="icon-clock">{{getValue this 'Estimated time'}}</strong>{{/if}} <strong class="right">{{regexField "customTagsRgx" "Tags" this}}</strong></h3>
+  <h3 class="icon-clock">{{#if (getValue this 'Estimated time')}}<strong>Estimated: {{getValue this 'Estimated time'}}</strong>{{/if}}  <strong class="icon-tag">{{regexField "customTagsRgx" "Tags" this}}</strong></h3>
 </footer>
   
 </li>

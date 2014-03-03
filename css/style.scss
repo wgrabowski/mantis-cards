@@ -1,6 +1,7 @@
 @import "variables";
-//@import "issues-screen";
-@import "issues-print-new";
+@import "issues-common";
+@import "issues-screen";
+@import "issues-print";
 
 section aside,a,button,input,textarea,select,[class*="icon"]:before{
   -webkit-transition: all 300ms ease;

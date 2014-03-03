@@ -2,46 +2,69 @@
   padding:0;
   margin:0
 }
-.issues{
+#print.issues{
   display:block;
   list-style:none;
   margin:0;
   padding:0;
   float:left;
-  overflow-y:auto;
+  overflow-y:scroll;
   li{
-    width:33.333333333333333%;
-    max-width:70mm;
-    min-width:50mm;
-    height:33.333333333333333%;
-    max-height:99mm;
-    min-height:86mm;
+    position:relative;
+    width:$printed-width-percent;
+    max-width:$printed-width-max;
+    min-width:$printed-width-min;
+    height:$printed-height-percent;
+    max-height:$printed-height-max;
+    min-height:$printed-height-min;
     float:left;
     display:block;
-    padding:0;
+    padding:$printed-card-padding;
     background:0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border:1px dashed black;
     border-width:0 1px 1px 0;
-    position:relative;
+    
       header{
-       background:pink;
+       width:100%;
+       display:block;
+       clear:both;
+       float:left;
        h1,h2,h3,h4{
          margin:0;
-         
+         float:left;
+         width:auto;
        }
+       h1{
+         width:100%;
+         clear:both;
+         font-size:3rem;
+         line-height:4rem;
+         .custom-id{
+           font-size:1.75rem;
+          }
+        }
+       h2{
+         width:100%;
+        font-size:1.25rem;
+        line-height:1.5rem;
+       }
+
       }
       footer{
-       background:red;
        position:absolute;
-       bottom:0;
-       left:0;
-       right:0;
+       bottom:1px;
+       left:$printed-card-padding;
+       right:$printed-card-padding;;
       }
       section{
-       background:wheat 
+
+       display: block;
+       float:left;
+       clear:both;
+       width:100%;
       }
   }
 }

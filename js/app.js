@@ -1,13 +1,20 @@
 var mcards = {
 	init : function() {
+		var customFields = [];
+		customFields["customImportanceField"] = "Importance";
 		mcards.csvInput = document.querySelector("#csv-input");
 		localStorage.setItem(mcards.storagePrefix+"rgx-customSummaryRgx","/[A-Z]{3}[0-9]{3,4}/");
 		localStorage.setItem(mcards.storagePrefix+"rgx-customTagsRgx","/[GUI]/");
+		localStorage.setItem(mcards.storagePrefix+"customFields",JSON.stringify(customFields));
 		if (localStorage.getItem(mcards.storageKey)) {
 			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
-		
 		}
-
+		mcards.settings.customFields = customFields;
+		/*
+		if(localStorage.getItem(localStorage.getItem(mcards.storagePrefix+"customFields"))){
+			mcards.settings.customFields = JSON.parse(localStorage.getItem(mcards.storagePrefix+"customFields"));			
+		}
+*/
 		mcards.list = document.querySelector("ul#list.issues");
 		mcards.print = document.querySelector("ul#print.issues");
 
@@ -186,6 +193,7 @@ var mcards = {
 	},
 	allIssues : {
 	},
+	settings:{},
 	list : {},
 	print : {},
 	csvInput : null,
