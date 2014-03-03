@@ -3,38 +3,45 @@
   margin:0
 }
 .issues{
+  display:block;
   list-style:none;
   margin:0;
   padding:0;
   float:left;
   overflow-y:auto;
   li{
-    display:block;
-    width:33.3333333333%;
+    width:33.333333333333333%;
     max-width:70mm;
-    float:left;
-    height:33.3333333333%;
+    min-width:50mm;
+    height:33.333333333333333%;
     max-height:99mm;
-    min-height:99mm;
+    min-height:86mm;
+    float:left;
+    display:block;
+    padding:0;
+    background:0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    border:1px dashed black;
+    border-width:0 1px 1px 0;
     position:relative;
-    border:1px dashed #000;
-    border-width:1px;
-    
       header{
-       background:pisnk;
+       background:pink;
+       h1,h2,h3,h4{
+         margin:0;
+         
+       }
       }
       footer{
-       background:reds;
+       background:red;
        position:absolute;
        bottom:0;
        left:0;
        right:0;
       }
       section{
-       background:wheast 
+       background:wheat 
       }
   }
 }
