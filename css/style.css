@@ -16,6 +16,10 @@
   min-height: 3em;
   line-height: 1.5em; }
 
+.issue:target {
+  z-index: 3000;
+  background: #c4bbdc!important; }
+
 #list.issues {
   display: block;
   list-style: none;
@@ -88,9 +92,9 @@
     width: 50%;
     max-width: 105mm;
     min-width: 92.5mm;
-    height: 33.33333%;
-    max-height: 96.66667mm;
-    min-height: 88.33333mm;
+    height: 25%;
+    max-height: 72.5mm;
+    min-height: 66.25mm;
     float: left;
     display: block;
     padding: 0.5rem;
@@ -131,6 +135,29 @@
       clear: both;
       width: 100%; }
 
+.config-panel header {
+  margin-bottom: 0.5em; }
+.config-panel label, .config-panel input, .config-panel button {
+  width: 200px;
+  float: left;
+  display: block;
+  clear: none;
+  line-height: 2em;
+  height: 2em;
+  padding: 0 0.5em;
+  font-size: 16px; }
+.config-panel input {
+  background: #e1dcee!important;
+  border: 0;
+  width: 300px; }
+  .config-panel input:focus {
+    background: #c4bbdc!important;
+    outline: none; }
+.config-panel button {
+  background: #8a77ba!important;
+  width: auto;
+  padding: 0 0.5em; }
+
 section aside, a, button, input, textarea, select, [class*="icon"]:before {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
@@ -161,6 +188,9 @@ body > header {
   font-size: 1.25em;
   line-height: 3rem; }
 
+body > header a, body > header button {
+  color: ivory; }
+
 body > section {
   float: left;
   width: 75%;
@@ -178,7 +208,7 @@ section#left-panel {
   width: 25%;
   border-right: 1px dashed #201747; }
 
-body > section > header {
+body > section > header, aside > header {
   width: 100%;
   height: 3rem;
   font-size: 1em;
@@ -186,7 +216,10 @@ body > section > header {
   border: 1px dashed #574487;
   border-width: 0 0 1px; }
 
-section > header h1 {
+body > header > nav:after {
+  content: "ver1.1 "; }
+
+section > header h1, body > header h1, aside > header h1 {
   float: left;
   width: auto;
   padding: 0 0.25em;
@@ -196,7 +229,7 @@ section > header h1 {
   height: 3rem;
   color: #201747; }
 
-section > header nav {
+section > header nav, body > header nav, aside > header nav {
   float: right;
   color: #574487; }
 
@@ -226,6 +259,12 @@ button, a {
 [class*="icon"]:before {
   font-size: 1.5rem!important;
   line-height: 3rem !important; }
+
+[contenteditable]:focus {
+  outline: 1px solid lightblue;
+  -webkit-box-shadow: 0 0 14px lightblue;
+  -moz-box-shadow: 0 0 14px ivory;
+  box-shadow: 0 0 14px ivory; }
 
 a[href="#close"] {
   font-size: 2em;
@@ -257,11 +296,13 @@ section aside {
   min-height: 0;
   max-height: 0;
   z-index: 10;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0 0.5rem; }
 
 section aside:target {
   max-height: calc(100% - 3rem);
-  min-height: calc(100% - 3rem); }
+  min-height: calc(100% - 3rem);
+  overflow: auto; }
 
 .right {
   float: right; }
@@ -272,13 +313,19 @@ a.big, button.big {
   background: #201747;
   color: ivory; }
 
+a.action, button.action {
+  background: #201747;
+  color: ivory;
+  border: 0;
+  float: left; }
+
+a
 .two-state {
   width: 0;
   height: 3rem;
   overflow: visible; }
 
 aside label, aside input {
-  clear: both;
   float: left;
   display: block; }
 
@@ -308,3 +355,10 @@ aside label, aside input {
 #cards-per-page:after {
   content: "9";
   float: right; }
+
+#goto {
+  float: right;
+  line-height: 3rem;
+  height: 3rem;
+  border: 0;
+  background: ivory; }

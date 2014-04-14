@@ -16,3 +16,8 @@
   min-height:$list-issue-height;
   line-height:1.5em;
 }
+.issue:target{
+  z-index:3000;
+   background: #{lighten($theme-color-2,40%)}!important;
+
+}

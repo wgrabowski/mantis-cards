@@ -3,18 +3,21 @@ var mcards = {
 		var customFields = [];
 		customFields["customImportanceField"] = "Importance";
 		mcards.csvInput = document.querySelector("#csv-input");
-		localStorage.setItem(mcards.storagePrefix+"rgx-customSummaryRgx","/[A-Z]{3}[0-9]{3,4}/");
-		localStorage.setItem(mcards.storagePrefix+"rgx-customTagsRgx","/[GUI]/");
-		localStorage.setItem(mcards.storagePrefix+"customFields",JSON.stringify(customFields));
+		if(!localStorage.getItem(mcards.storagePrefix + "rgx-customSummaryRgx")){
+			mcards.utils.store("rgx-customSummaryRgx", "/[A-Z]{3}[0-9]{3,4}/");
+		}
+		//localStorage.setItem(mcards.storagePrefix + "rgx-customSummaryRgx", "/Defect #[0-9]{2,3}/");
+		localStorage.setItem(mcards.storagePrefix + "rgx-customTagsRgx", "/[GUI]/");
+		localStorage.setItem(mcards.storagePrefix + "customFields", JSON.stringify(customFields));
 		if (localStorage.getItem(mcards.storageKey)) {
 			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
 		}
 		mcards.settings.customFields = customFields;
 		/*
-		if(localStorage.getItem(localStorage.getItem(mcards.storagePrefix+"customFields"))){
-			mcards.settings.customFields = JSON.parse(localStorage.getItem(mcards.storagePrefix+"customFields"));			
-		}
-*/
+		 if(localStorage.getItem(localStorage.getItem(mcards.storagePrefix+"customFields"))){
+		 mcards.settings.customFields = JSON.parse(localStorage.getItem(mcards.storagePrefix+"customFields"));
+		 }
+		 */
 		mcards.list = document.querySelector("ul#list.issues");
 		mcards.print = document.querySelector("ul#print.issues");
 
@@ -25,7 +28,8 @@ var mcards = {
 		mcards.attachEvents();
 	},
 	attachEvents : function() {
-		var importBtn = document.querySelector("#import-btn"), addAllBtn = document.querySelector("#add-all-btn"), eraseAllBtn = document.querySelector("#erase-all-btn");
+		var importBtn = document.querySelector("#import-btn"), addAllBtn = document.querySelector("#add-all-btn"), eraseAllBtn = document.querySelector("#erase-all-btn"),
+			optionButtons = document.querySelectorAll("#print-options button"); 
 
 		addEvent(importBtn, 'click', function(e) {
 			e.preventDefault();
@@ -40,6 +44,15 @@ var mcards = {
 			e.preventDefault();
 			mcards.noneToPrint();
 		});
+		for(var i=0,j=optionButtons.length; i<j; i++){
+			var subKey = optionButtons[i].getAttribute("data-saves");
+			var inp = document.querySelector("input#"+subKey);
+			inp.value = localStorage.getItem(mcards.storagePrefix+subKey);
+		  	addEvent(optionButtons[i], 'click', function(e) {
+		  		mcards.utils.store(subKey,inp.value);
+		  		location.reload();
+		});
+		};
 
 	},
 	importFromCSV : function() {
@@ -117,6 +130,7 @@ var mcards = {
 
 		});
 	},
+	
 	initDropOnList : function() {
 
 		var print = document.querySelector('#list');
@@ -187,20 +201,28 @@ var mcards = {
 			return res;
 		},
 		getRgxByName : function(name) {
-			var rgx = localStorage.getItem(mcards.storagePrefix+"rgx-"+name);
+			var rgx = localStorage.getItem(mcards.storagePrefix + "rgx-" + name);
 			return rgx;
+		},
+		store : function(subKey, value) {
+			try {
+				localStorage.setItem(mcards.storagePrefix + subKey, value);
+			} catch(err) {
+				console.log(err.message);
+				alert("Save error - see console for details");
+			}
 		}
 	},
 	allIssues : {
 	},
-	settings:{},
+	settings : {},
 	list : {},
 	print : {},
 	csvInput : null,
 	storageKey : "mcards-all",
 	storagePrefix : "mcards-"
-	
-}
+
+};
 
 function addEvent(el, type, fn) {
 	if (el && el.nodeName || el === window) {

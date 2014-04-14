@@ -2,6 +2,8 @@
 @import "issues-common";
 @import "issues-screen";
 @import "issues-print";
+@import "options";
+@import "version";
 
 section aside,a,button,input,textarea,select,[class*="icon"]:before{
   -webkit-transition: all 300ms ease;
@@ -33,6 +35,9 @@ body > header{
   font-size:1.25em;
   line-height:$header-height;
 }
+body > header a,body > header button{
+  color:$theme-color-light;
+}
 body > section{
   float:left;
   width:75%;
@@ -52,7 +57,7 @@ section#left-panel{
   
 }
 
-body > section > header{
+body > section > header,aside > header{
   width:100%;
   height:$header-height;
   font-size:1em;
@@ -61,7 +66,10 @@ body > section > header{
   border-width:0 0 1px;
   
 }
-section > header h1{
+body > header > nav:after{
+  content:"ver" #{$version}" ";
+}
+section > header h1,body > header h1,aside > header h1{
   float:left;
   width:auto;
   padding:0 0.25em;
@@ -71,7 +79,7 @@ section > header h1{
   height:$header-height;
   color:$theme-color-1;
 }
-section > header nav{
+section > header nav,body > header nav,aside > header nav{
   float:right;
   color:$theme-color-2;
 }
@@ -101,6 +109,12 @@ button,a{
 [class*="icon"]:before{
   font-size:#{$header-height/2}!important;
   line-height:$header-height!important;
+}
+[contenteditable]:focus{
+  outline:1px solid lightblue;
+  -webkit-box-shadow: 0 0 14px lightblue;
+  -moz-box-shadow: 0 0 14px $theme-bg-2;
+  box-shadow: 0 0 14px $theme-bg-2;
 }
 
 a[href="#close"]{
@@ -134,11 +148,13 @@ section aside{
   min-height:0;
   max-height:0;
   z-index:10;
-  overflow:hidden
+  overflow:hidden;
+  padding:0 0.5rem
 }
 section aside:target{
   max-height:calc(100% - #{$header-height});
   min-height:calc(100% - #{$header-height});
+  overflow:auto
 }
 .right{
 	float:right;
@@ -149,7 +165,13 @@ a.big,button.big{
   background:$theme-color-1;
   color:$theme-color-light;
 }
-
+a.action,button.action{
+  background:$theme-color-1;
+  color:$theme-color-light;
+  border:0;
+  float:left;
+}
+a
 .two-state{
 width:0;
 height:$header-height;
@@ -157,7 +179,6 @@ overflow:visible;
 
 }
 aside label,aside input{
-  clear:both;
   float:left;
   display: block;
 }
@@ -190,3 +211,11 @@ aside label,aside input{
   float:right;
 }
 
+#goto{
+  float:right;
+  line-height:$header-height;
+  height:$header-height;
+  border:0;
+  background: $theme-color-light;
+  
+}

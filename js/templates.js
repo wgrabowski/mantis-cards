@@ -45,9 +45,7 @@ function program3(depth0,data) {
   stack1 = (helper = helpers.getValue || (depth0 && depth0.getValue),options={hash:{},data:data},helper ? helper.call(depth0, depth0, "Estimated time", options) : helperMissing.call(depth0, "getValue", depth0, "Estimated time", options));
   stack1 = helpers['if'].call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "  <strong class=\"icon-tag\">"
-    + escapeExpression((helper = helpers.regexField || (depth0 && depth0.regexField),options={hash:{},data:data},helper ? helper.call(depth0, "customTagsRgx", "Tags", depth0, options) : helperMissing.call(depth0, "regexField", "customTagsRgx", "Tags", depth0, options)))
-    + "</strong></h3>\r\n</footer>\r\n  \r\n</li>\r\n";
+  buffer += " </h3>\r\n</footer>\r\n  \r\n</li>\r\n";
   return buffer;
   });
 templates['single-issue'] = template(function (Handlebars,depth0,helpers,partials,data) {
