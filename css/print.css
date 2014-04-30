@@ -14,8 +14,8 @@
   width: 100%;
   height: auto;
   overflow: visible;
-  top: 0; 
-  min-height:100%;}
+  min-height: 50%;
+  top: 0; }
 
 #right-panel #print.issues li {
   min-height: 0;
