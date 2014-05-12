@@ -1,0 +1,30 @@
+.config-panel{
+  header{
+    margin-bottom:0.5em;
+  }
+  label,input,button{
+    width:200px;
+    float:left;
+    display:block;
+    clear:none;
+    line-height:2em;
+    height:2em;
+    padding:0 0.5em;
+    font-size:1*$theme-font-size-base-px;
+    
+  }
+  input{
+    background:#{$options-bg-light}!important;
+    border:0;
+    width:300px;    
+    &:focus{
+      background:#{$options-bg-medium}!important;
+      outline:none;
+    }
+  }
+  button{
+    background:#{$options-bg-dark}!important;
+    width:auto;
+    padding:0 0.5em
+  }
+}

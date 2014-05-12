@@ -1,0 +1,26 @@
+/* TEAM */
+
+                            
+Lead Designer & Lead Developer: Wojciech Grabowski.
+
+                            
+Site: wojciech-grabowski.pl.
+
+                            
+Twitter: wojbor.
+
+                            
+                            
+/* SITE */
+
+                            
+Last update: 2014/05/12 
+
+                            
+Standards: HTML5, CSS3
+
+                            
+Components: Handlebars, SASS
+
+                            
+Software: Aptana Studio

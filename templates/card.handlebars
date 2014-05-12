@@ -1,0 +1,18 @@
+<li id="newcard{{getValue this 'ID'}}" class="issue" draggable="true">
+<header>
+  <h1><strong>{{getValue this 'ID'}}</strong><strong class="custom-id right">{{regexField "customSummaryRgx" "Summary" this}}</strong></h1>
+  <h2>
+  {{#if (customField "customImportanceField" this 'value')}}
+  <strong class="right">{{customField "customImportanceField" this 'name'}}: {{customField "customImportanceField" this 'value'}}</strong>
+  {{/if}}
+  	<strong class="severity">{{getValue this 'Priority'}} / {{getValue this 'Severity'}}</strong> 
+  </h2>
+</header>
+<section class="summary" contenteditable="true">
+   	{{getValue this 'Summary'}}
+</section>
+<footer>
+  <h3 class="icon-clock">{{#if (getValue this 'Estimated time')}}<strong>Estimated: {{getValue this 'Estimated time'}}</strong>{{/if}} </h3>
+</footer>
+  
+</li>

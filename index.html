@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Mantis cards printer</title>
+		
+		<link type="text/plain" rel="author" href="humans.txt" />
+		
+		<link rel="stylesheet" href="webfont/css/entypo-all.css" media="all" />
+		<link rel="stylesheet" href="css/normalize.css" media="all" />
+		<link rel="stylesheet" href="css/style.css" media="all" />
+		<link rel="stylesheet" href="css/print.css" media="print" />
+		
+		
+		<script src="lib/handlebars.runtime-v1.3.0.js"></script>
+		<script src="js/helpers.js"></script>
+		<script src="js/templates.js"></script>
+		<script src="js/csv2json.js"></script>
+		<script src="js/app.js"></script>		
+		<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<header>
+			Mantis Cards printer
+			<nav>
+			<a href="#help" title="Import from CSV" class="icon-help icon-only">Help</a>
+			<a href="#info" title="Import from CSV" class="icon-info icon-only">Info</a>
+				</nav>
+		</header>
+		<section id="left-panel">
+			<header>
+				<h1>Mantis issues</h1>
+				<nav>
+					<button id="add-all-btn" class="icon-forward icon-only" title="Add all">
+						add all
+					</button>
+					<a href="#mantis-import" title="Import from CSV" class="icon-install icon-only">import CSV</a>
+				</nav>
+			</header>
+			<aside tabindex="0" id="mantis-import">
+				<header>
+					<h1>Import</h1>
+					<a href="#close" title="zamknij">&times;</a>
+				</header>
+				<p>
+					Export issues from Mantis to CSV, paste exported file content below and press [Import] button.
+				</p>
+				<textarea name="csv-input" id="csv-input" cols="30" rows="10" placeholder="paste CSV content here"></textarea>
+				<button id="import-btn" class="big" title="Import">
+					Import
+				</button>
+			</aside>
+			<ul class="issues" id="list"></ul>
+		</section>
+		<section id="right-panel">
+			<header>
+				<h1>Print view</h1>
+				<nav>
+					
+					<label for="goto" class="icon-only icon-search">Find issue </label>					
+					<button class="icon-print icon-only" onclick="window.print()" title="Print cards">
+						Print
+					</button>
+					<a href="#print-options" class="icon-cog icon-only" title="Show print options - not implemented yet">Options</a>
+					<button id="erase-all-btn" class="icon-reply icon-only" title="Add all" title="Move all cards from print">
+						Erase all
+					</button>
+					<input type="number" name="goto" id="goto" placeholder="issue #" size="8" max="99999999" min="0" step="1" onkeyup="window.location.hash = 'newcard'+this.value;"/>
+				</nav>
+			</header>
+			<ul class="issues" id="print">
+						</ul>
+			<aside class="config-panel" id="print-options">
+				<header>
+					<h1>Print options</h1>
+					<nav>
+						<a href="#close" class="right">&times;</a>
+					</nav>
+				</header>
+				<label for="customSummaryRgx">Custom summary Regex</label>
+				<input type="text" name="rgx-customSummaryRgx" id="rgx-customSummaryRgx" placeholder="place your regex here" />
+				<button class="action" data-saves="rgx-customSummaryRgx">Change!</button>
+				<section id="print">
+					
+				</section>
+			</aside>
+			<aside class="help" id="help">
+				<header>
+					<h1>How to use this tool</h1>
+					<nav>
+						<a href="#close" class="right">&times;</a>
+					</nav>
+				</header>
+				<section>
+					<h2>Export from Mantis</h2>
+					<p>Export task list from Mantis to a CSV file.</p>
+					<mark>Minimal required CSV columns are:</mark>
+					<pre>priority, id, summary, status, custom_estimated time, severity, Milestone</pre>
+				</section>
+				<section>
+					<h2>Import data from CSV file</h2>
+					<p>Open application and press button: <mark class="icon-install"></mark></p>
+					<p>Paste CSV file contents to textarea and press Import button.</p>
+					<mark>Imported data will be stored in browser local storage so You don't have to import them every time manually.</mark>
+				</section>
+				<section>
+					<h2>Choose items to print</h2>
+					<p>After import from CSV You should see issues as a list on the left side.</p>
+					<p>To select issues for print drag them and drop  into print view section</p>
+					<p>You can edit issue summary content if you want to. </p>
+					<p>Use <mark class="icon-forward"></mark> button to move all issues from list to print view.</p>
+					<p>Use <mark class="icon-reply"></mark> button to move all issues from print view back to list</p>
+				</section>
+				<section>
+					<h2>Print selected items as cards</h2>
+					<p>To print selected items, You can use <mark class="icon-print"></mark> or Ctrl+P shortcut or any default method of printing webpage</p>
+				</section>
+			</aside>
+			<aside class="help" id="info">
+				<header>
+					<h1>Info</h1>
+					<nav>
+						<a href="#close" class="right">&times;</a>
+					</nav>
+				</header>
+				<section>
+					<h2>Authore</h2>
+					<adress>
+						Wojciech Grabowski 
+					</adress>
+				</section> 
+				<section>
+					<h2>Browser support</h2>
+					<p>All modern browsers (relatively new versions, including IE10+) supporting HTML5</p>
+				<section>
+					<h2>Print settings</h2>
+					<p>Print options will be configurable in the future</p>
+					<p>Default options used in current version:</p>
+					<ul>
+						<li>8 cards per A4 paper sheet (2 colums x 4 rows)</li>
+						<li>page orientation: portrait orientation</li>
+					</ul>
+				</section>
+			</aside>
+		</section>
+
+		<script>
+			registerHelpers();
+			mcards.init();
+		</script>
+	</body>
+</html>
+
