@@ -1,0 +1,25 @@
+#left-panel {
+  display: none; }
+
+#right-panel > header {
+  display: none; }
+
+#right-panel {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  top: 0; }
+
+#right-panel #print.issues {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  min-height: 50%;
+  top: 0; }
+
+#right-panel #print.issues li {
+  min-height: 0;
+  min-width: 0; }
+
+body > header, body > footer {
+  display: none; }
