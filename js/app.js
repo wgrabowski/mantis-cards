@@ -10,7 +10,7 @@ var mcards = {
 		localStorage.setItem(mcards.storagePrefix + "rgx-customTagsRgx", "/[GUI]/");
 		localStorage.setItem(mcards.storagePrefix + "customFields", JSON.stringify(customFields));
 		if (localStorage.getItem(mcards.storageKey)) {
-			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey))
+			mcards.allIssues = JSON.parse(localStorage.getItem(mcards.storageKey));
 		}
 		mcards.settings.customFields = customFields;
 		/*
@@ -63,16 +63,15 @@ var mcards = {
 	showIssues : function() {
 		// display template on the left
 		var listHtml = "", list = document.querySelector("ul#list.issues"), print = document.querySelector("ul#print.issues");
-
+		
 		for (var i = 0, j = mcards.allIssues.length; i < j; i++) {
 			//listHtml += Handlebars.templates["single-issue"](mcards.allIssues["" + i + ""]);
-			listHtml += Handlebars.templates["issue"](mcards.allIssues["" + i + ""]);
+			listHtml += Handlebars.templates.card(mcards.allIssues["" + i + ""]);
+			
 		}
 		list.innerHTML = listHtml;
 	},
-	toggleInput : function() {
-		document.querySelector("import-panel")
-	},
+	
 
 	initDragOnList : function() {
 		var msie = /*@cc_on!@*/0;
